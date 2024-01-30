@@ -1,6 +1,6 @@
 package com.example.proyectospringboot.repository;
 
-import com.example.proyectospringboot.model.Constructor;
+import com.example.proyectospringboot.entity.Constructor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

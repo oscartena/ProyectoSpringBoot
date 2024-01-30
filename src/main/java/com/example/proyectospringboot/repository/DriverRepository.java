@@ -1,6 +1,6 @@
 package com.example.proyectospringboot.repository;
 
-import com.example.proyectospringboot.model.Driver;
+import com.example.proyectospringboot.entity.Driver;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

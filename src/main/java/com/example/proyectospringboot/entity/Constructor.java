@@ -1,4 +1,4 @@
-package com.example.proyectospringboot.model;
+package com.example.proyectospringboot.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
@@ -22,6 +22,7 @@ public class Constructor {
     @Column(unique = true)
     private String name;
 
+    @Column
     private String nationality;
     private String url;
 

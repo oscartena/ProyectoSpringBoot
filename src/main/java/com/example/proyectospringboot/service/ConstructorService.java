@@ -1,6 +1,6 @@
 package com.example.proyectospringboot.service;
 
-import com.example.proyectospringboot.model.Constructor;
+import com.example.proyectospringboot.entity.Constructor;
 import com.example.proyectospringboot.repository.ConstructorRepository;
 import org.springframework.stereotype.Service;
 

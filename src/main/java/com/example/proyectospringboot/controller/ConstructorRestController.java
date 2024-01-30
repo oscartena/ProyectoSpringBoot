@@ -1,6 +1,6 @@
 package com.example.proyectospringboot.controller;
 
-import com.example.proyectospringboot.model.Constructor;
+import com.example.proyectospringboot.entity.Constructor;
 import com.example.proyectospringboot.service.ConstructorService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +51,6 @@ public class ConstructorRestController {
     @DeleteMapping("/constructors/{constructorRef}")
     public ResponseEntity<Constructor> deleteByConstructorRef(@PathVariable String constructorRef){
         this.constructorService.deleteConstructorByConstructorRef(constructorRef);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.noContent().build();
     }
 }

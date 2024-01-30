@@ -1,6 +1,6 @@
 package com.example.proyectospringboot.service;
 
-import com.example.proyectospringboot.model.Driver;
+import com.example.proyectospringboot.entity.Driver;
 
 import java.util.List;
 import java.util.Optional;

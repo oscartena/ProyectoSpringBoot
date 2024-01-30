@@ -1,6 +1,6 @@
 package com.example.proyectospringboot.controller;
 
-import com.example.proyectospringboot.model.Driver;
+import com.example.proyectospringboot.entity.Driver;
 import com.example.proyectospringboot.service.DriverService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;

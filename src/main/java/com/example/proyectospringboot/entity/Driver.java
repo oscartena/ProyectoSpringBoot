@@ -1,4 +1,4 @@
-package com.example.proyectospringboot.model;
+package com.example.proyectospringboot.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -20,10 +20,14 @@ public class Driver {
 
     @Column(unique = true, name = "code")
     private String code;
+    @Column
     private String forename;
+    @Column
     private String surname;
+    @Column
     @JsonProperty("dateOfBirth")
     private LocalDate dob;
+    @Column
     private String nationality;
     private String url;
 

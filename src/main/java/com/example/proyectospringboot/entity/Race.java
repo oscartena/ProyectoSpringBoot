@@ -1,4 +1,4 @@
-package com.example.proyectospringboot.model;
+package com.example.proyectospringboot.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
