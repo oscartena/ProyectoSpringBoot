@@ -1,5 +1,6 @@
 package com.example.proyectospringboot.controller;
 
+import com.example.proyectospringboot.dto.DriverDTO;
 import com.example.proyectospringboot.entity.Driver;
 import com.example.proyectospringboot.service.DriverService;
 import jakarta.transaction.Transactional;
@@ -19,7 +20,7 @@ public class DriverRestController {
     }
 
     @GetMapping("/drivers")
-    public ResponseEntity<List<Driver>> getAllDrivers() {
+    public ResponseEntity<List<DriverDTO>> getAllDrivers() {
         return ResponseEntity.ok().body(driverService.getAllDrivers());
     }
 
