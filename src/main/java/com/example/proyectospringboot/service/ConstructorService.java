@@ -1,6 +1,7 @@
 package com.example.proyectospringboot.service;
 
 import com.example.proyectospringboot.entity.Constructor;
+import com.example.proyectospringboot.projection.ConstructorDetails;
 import com.example.proyectospringboot.repository.ConstructorRepository;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +20,7 @@ public class ConstructorService {
         return constructorRepository.findAll();
     }
 
-    public Optional<Constructor> getConstructorByConstructorRef(String constructorRef) {
+    public Optional<ConstructorDetails> getConstructorByConstructorRef(String constructorRef) {
         return constructorRepository.findByConstructorRefIgnoreCase(constructorRef);
     }
 

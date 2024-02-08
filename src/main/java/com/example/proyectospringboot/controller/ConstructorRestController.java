@@ -1,6 +1,7 @@
 package com.example.proyectospringboot.controller;
 
 import com.example.proyectospringboot.entity.Constructor;
+import com.example.proyectospringboot.projection.ConstructorDetails;
 import com.example.proyectospringboot.service.ConstructorService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class ConstructorRestController {
     }
 
     @GetMapping("/constructors/{constructorRef}")
-    public ResponseEntity<Constructor> getByConstructorRef(@PathVariable String constructorRef){
+    public ResponseEntity<ConstructorDetails> getByConstructorRef(@PathVariable String constructorRef){
         return this.constructorService.getConstructorByConstructorRef(constructorRef)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

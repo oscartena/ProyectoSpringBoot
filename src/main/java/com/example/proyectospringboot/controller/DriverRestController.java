@@ -1,9 +1,12 @@
 package com.example.proyectospringboot.controller;
 
-import com.example.proyectospringboot.dto.DriverDTO;
+import com.example.proyectospringboot.dto.DriverListDetailsDTO;
 import com.example.proyectospringboot.entity.Driver;
+import com.example.proyectospringboot.projection.DriverDetails;
+import com.example.proyectospringboot.projection.DriverDetailsDTO;
 import com.example.proyectospringboot.service.DriverService;
 import jakarta.transaction.Transactional;
+import org.hibernate.query.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +23,21 @@ public class DriverRestController {
     }
 
     @GetMapping("/drivers")
-    public ResponseEntity<List<DriverDTO>> getAllDrivers() {
+    public ResponseEntity<List<DriverListDetailsDTO>> getAllDrivers() {
         return ResponseEntity.ok().body(driverService.getAllDrivers());
     }
 
+//    @GetMapping("drivers")
+//    public ResponseEntity<List<DriverDetails>> getAllPagedAndSorted(@RequestParam(defaultValue = "0") int page,
+//                                                                    @RequestParam(defaultValue = "10") int size,
+//                                                                    @RequestParam(defaultValue = "code") String sortBy,
+//                                                                    @RequestParam(defaultValue = "ASC") String sortDirection){
+//        Page<DriverDetails> driverDTOPage = this.driverService.getAllDriversPaged(page,size, sortBy, sortDirection);
+//        return ResponseEntity.ok(driverDTOPage.)
+//    }
+
     @GetMapping("/drivers/{code}")
-    public ResponseEntity<Driver> getByCode(@PathVariable String code){
+    public ResponseEntity<DriverDetailsDTO> getByCode(@PathVariable String code){
         return this.driverService.getDriverByCode(code)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());

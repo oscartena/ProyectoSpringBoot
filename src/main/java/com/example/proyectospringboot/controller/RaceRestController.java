@@ -5,6 +5,7 @@ import com.example.proyectospringboot.service.RaceService;
 import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -18,8 +19,13 @@ public class RaceRestController {
     }
 
     @GetMapping("/races")
-    public ResponseEntity<List<Race>> getAllRaces() {
-        return ResponseEntity.ok().body(raceService.getAllRaces());
+    public ResponseEntity<List<Race>> getAllRaces(@RequestParam(defaultValue = "0") Integer page,
+                                                  @RequestParam(defaultValue = "10") Integer size,
+                                                  @RequestParam(defaultValue = "name") String sortBy,
+                                                  @RequestParam(defaultValue = "ASC") String sortDirection)
+    {
+        Page<Race> racePage = raceService.getAllRacesPaged(page, size, sortBy, sortDirection);
+        return ResponseEntity.ok().body(racePage.stream().toList());
     }
 
     @GetMapping("/races/{round}")
