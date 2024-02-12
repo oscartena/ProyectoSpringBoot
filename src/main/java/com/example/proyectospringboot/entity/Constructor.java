@@ -16,7 +16,7 @@ public class Constructor {
     @Column(name = "constructorid")
     private Long constructorId;
 
-    @Column(name = "constructorref", unique = true)
+    @Column(name = "constructorref", unique = true, nullable = false)
     private String constructorRef;
 
     @Column(unique = true)

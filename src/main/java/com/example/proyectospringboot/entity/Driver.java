@@ -37,5 +37,6 @@ public class Driver {
     private Constructor constructor;
 
     @OneToMany(mappedBy = "driver")
+    @JsonBackReference
     private List<Result> results;
 }

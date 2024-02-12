@@ -1,6 +1,7 @@
 package com.example.proyectospringboot.controller;
 
 import com.example.proyectospringboot.entity.Race;
+import com.example.proyectospringboot.projection.RaceProjection;
 import com.example.proyectospringboot.service.RaceService;
 import jakarta.transaction.Transactional;
 import org.springframework.http.ResponseEntity;
@@ -18,14 +19,19 @@ public class RaceRestController {
         this.raceService = raceService;
     }
 
+    @GetMapping("races/projection")
+    public ResponseEntity<List<RaceProjection>> getAllRacesProjection() {
+        return ResponseEntity.ok(raceService.getAllRacesProjection());
+    }
+
     @GetMapping("/races")
-    public ResponseEntity<List<Race>> getAllRaces(@RequestParam(defaultValue = "0") Integer page,
-                                                  @RequestParam(defaultValue = "10") Integer size,
+    public ResponseEntity<Page<Race>> getAllRacesPaged(@RequestParam(defaultValue = "0") Integer page,
+                                                  @RequestParam(defaultValue = "5") Integer size,
                                                   @RequestParam(defaultValue = "name") String sortBy,
                                                   @RequestParam(defaultValue = "ASC") String sortDirection)
     {
-        Page<Race> racePage = raceService.getAllRacesPaged(page, size, sortBy, sortDirection);
-        return ResponseEntity.ok().body(racePage.stream().toList());
+        Page<Race> races = raceService.getAllRacesPaged(page, size, sortBy, sortDirection);
+        return ResponseEntity.ok(races);
     }
 
     @GetMapping("/races/{round}")

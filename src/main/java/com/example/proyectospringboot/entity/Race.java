@@ -26,7 +26,6 @@ public class Race {
     private int round;
 
     @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    @JoinColumn(name = "circuitid")
     @JsonIgnoreProperties("race")
     private Circuit circuit;
 
@@ -42,5 +41,6 @@ public class Race {
     private String url;
 
     @OneToMany(mappedBy = "race")
+    @JsonBackReference
     private Set<Result> results;
 }

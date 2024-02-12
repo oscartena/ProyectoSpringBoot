@@ -19,7 +19,10 @@ public class Circuit {
     @Column(unique = true, nullable = false)
     private String name;
 
+    @Column
     private String location;
+
+    @Column
     private String country;
     private double lat;
     private double lng;

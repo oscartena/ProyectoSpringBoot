@@ -1,5 +1,6 @@
 package com.example.proyectospringboot.controller;
 
+import com.example.proyectospringboot.dto.ConstructorDTO;
 import com.example.proyectospringboot.entity.Constructor;
 import com.example.proyectospringboot.projection.ConstructorDetails;
 import com.example.proyectospringboot.service.ConstructorService;
@@ -22,7 +23,7 @@ public class ConstructorRestController {
     }
 
     @GetMapping("/constructors")
-    public ResponseEntity<List<Constructor>> getAll(){
+    public ResponseEntity<List<ConstructorDTO>> getAll(){
         return ResponseEntity.ok(constructorService.getAllConstructors());
     }
 

@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class DriverServiceImpl implements DriverService {
+public class DriverServiceImpl {
 
     private final DriverRepository driverRepository;
     private final DriverMapper driverMapper;
@@ -23,27 +23,18 @@ public class DriverServiceImpl implements DriverService {
         this.driverRepository = driverRepository;
         this.driverMapper = driverMapper;
     }
-    @Override
-    public List<DriverListDetailsDTO> getAllDrivers() {
-        return driverRepository.findAll().stream().map(driverMapper).toList();
+    public List<Driver> getAllDrivers() {
+        return driverRepository.findAll();
     }
 
-    @Override
-    public Page getAllDriversPaged(int page, int size, String sortBy, String sortDirection) {
-        return null;
-    }
-
-    @Override
     public Optional<DriverDetailsDTO> getDriverByCode(String code) {
         return driverRepository.findByCodeIgnoreCase(code);
     }
 
-    @Override
     public void saveDriver(Driver driver) {
         driverRepository.save(driver);
     }
 
-    @Override
     public void deleteDriverByCode(String code) {
         driverRepository.deleteByCode(code);
     }

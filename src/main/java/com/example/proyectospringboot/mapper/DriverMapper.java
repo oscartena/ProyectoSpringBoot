@@ -14,6 +14,6 @@ public class DriverMapper implements Function<Driver, DriverListDetailsDTO> {
                 driver.getCode(),
                 driver.getForename()+" "+driver.getSurname(),
                 driver.getNationality(),
-                driver.getConstructor().getName());
+                driver.getConstructor().getName() != null ? driver.getConstructor().getName() : "No constructor");
     }
 }

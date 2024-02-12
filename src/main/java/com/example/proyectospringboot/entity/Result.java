@@ -21,11 +21,14 @@ public class Result {
 
     @ManyToOne
     @JoinColumn(name = "driverid")
-    @JsonIgnoreProperties("results")
+    @JsonManagedReference
     private Driver driver;
 
+    @Column(name = "grid", nullable = false)
     private int grid;
+    @Column(name = "position")
     private Integer position;
+    @Column(name = "points", nullable = false)
     private int points;
 
 }
